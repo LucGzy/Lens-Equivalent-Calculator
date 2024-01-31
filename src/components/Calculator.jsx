@@ -36,28 +36,30 @@ export default function Calculator() {
   };
 
   return (
-    <div className="w-[50%] items-center justify-center ">
-      <form className="flex flex-col text-white" onSubmit={calculate}>
-        <label htmlFor="focallength" className=" text-center mb-2">
-          Your focal length :
-        </label>
-        <input
-          id="focallength"
-          type="text"
-          className="text-black"
-          value={focalLength}
-          onChange={(e) => setFocalLength(e.target.value)}
-        />
-        <label htmlFor="fvalue" className=" text-center mb-2 mt-2">
-          Your f value :
-        </label>
-        <input
-          id="fvalue"
-          type="text"
-          className="text-black mb-2"
-          value={fValue}
-          onChange={(e) => setFValue(e.target.value)}
-        />
+    <div className="w-fit flex flex-col items-center justify-center ">
+      <form className="flex flex-row text-white" onSubmit={calculate}>
+        <div className="flex flex-col">
+          <label htmlFor="focallength" className=" mb-2">
+            Your focal length :
+          </label>
+          <input
+            id="focallength"
+            type="text"
+            className="text-black w-[70%]"
+            value={focalLength}
+            onChange={(e) => setFocalLength(e.target.value)}
+          />
+          <label htmlFor="fvalue" className=" mb-2 mt-2">
+            Your f value :
+          </label>
+          <input
+            id="fvalue"
+            type="text"
+            className="text-black mb-2 w-[70%]"
+            value={fValue}
+            onChange={(e) => setFValue(e.target.value)}
+          />
+        </div>
         <div id="originsensordiv">
           <label
             htmlFor="originsensorsize"
@@ -67,14 +69,30 @@ export default function Calculator() {
           </label>
           <div>
             <input
-              id="mediumformat_origin"
+              id="mediumformat1_origin"
               name="originsensorsize"
               type="radio"
               className="m-2"
-              checked={originSensorSize === "mediumformat"}
-              onChange={() => setOriginSensorSize("mediumformat")}
+              checked={originSensorSize === "mediumformat1"}
+              onChange={() => setOriginSensorSize("mediumformat1")}
             />
-            <label htmlFor="mediumformat_origin">Medium Format</label>
+            <label htmlFor="mediumformat1_origin">
+              Medium Format (x0.64, Hasselblad, Leaf, Phase One)
+            </label>
+          </div>
+          <div>
+            <input
+              id="mediumformat2_origin"
+              name="originsensorsize"
+              type="radio"
+              className="m-2"
+              checked={originSensorSize === "mediumformat2"}
+              onChange={() => setOriginSensorSize("mediumformat2")}
+            />
+            <label htmlFor="mediumformat2_origin">
+              Medium Format (x0.79, Hasselblad, Leaf, Phase One, Pentax 645D,
+              Fujifilm GFX)
+            </label>
           </div>
           <div>
             <input
@@ -89,6 +107,18 @@ export default function Calculator() {
           </div>
           <div>
             <input
+              id="APSH_origin"
+              name="originsensorsize"
+              type="radio"
+              className="m-2"
+              checked={originSensorSize === "APSH"}
+              onChange={() => setOriginSensorSize("APSH")}
+            />
+            <label htmlFor="APSH_origin">APS-H (Canon and Leica M8)</label>
+          </div>
+
+          <div>
+            <input
               id="APSC_origin"
               name="originsensorsize"
               type="radio"
@@ -96,7 +126,20 @@ export default function Calculator() {
               checked={originSensorSize === "APSC"}
               onChange={() => setOriginSensorSize("APSC")}
             />
-            <label htmlFor="APSC_origin">APS-C</label>
+            <label htmlFor="APSC_origin">
+              APS-C (every brand except canon)
+            </label>
+          </div>
+          <div>
+            <input
+              id="APSCC_origin"
+              name="originsensorsize"
+              type="radio"
+              className="m-2"
+              checked={originSensorSize === "APS-C Canon"}
+              onChange={() => setOriginSensorSize("APS-C Canon")}
+            />
+            <label htmlFor="APSCC_origin">APS-C (Canon)</label>
           </div>
           <div>
             <input
@@ -104,8 +147,8 @@ export default function Calculator() {
               name="originsensorsize"
               type="radio"
               className="m-2"
-              checked={originSensorSize === "micro43"}
-              onChange={() => setOriginSensorSize("micro43")}
+              checked={originSensorSize === "micro4/3"}
+              onChange={() => setOriginSensorSize("micro4/3")}
             />
             <label htmlFor="micro43_origin">Micro 4/3</label>
           </div>
@@ -132,6 +175,7 @@ export default function Calculator() {
             <label htmlFor="phone_origin">Phone</label>
           </div>
         </div>
+        {/********************************************************************************************************************************************/}
         <div id="destinationsensordiv">
           <label
             htmlFor="destinationsensorsize"
@@ -141,14 +185,30 @@ export default function Calculator() {
           </label>
           <div>
             <input
-              id="mediumformat_destination"
+              id="mediumformat1_destination"
               name="destinationsensorsize"
               type="radio"
               className="m-2"
-              checked={destinationSensorSize === "mediumformat"}
-              onChange={() => setDestinationSensorSize("mediumformat")}
+              checked={destinationSensorSize === "mediumformat1"}
+              onChange={() => setDestinationSensorSize("mediumformat1")}
             />
-            <label htmlFor="mediumformat_destination">Medium Format</label>
+            <label htmlFor="mediumformat1_destination">
+              Medium Format (x0.64, Hasselblad, Leaf, Phase One)
+            </label>
+          </div>
+          <div>
+            <input
+              id="mediumformat2_destination"
+              name="destinationsensorsize"
+              type="radio"
+              className="m-2"
+              checked={destinationSensorSize === "mediumformat2"}
+              onChange={() => setDestinationSensorSize("mediumformat2")}
+            />
+            <label htmlFor="mediumformat2_destination">
+              Medium Format (x0.79, Hasselblad, Leaf, Phase One, Pentax 645D,
+              Fujifilm GFX)
+            </label>
           </div>
           <div>
             <input
@@ -163,6 +223,18 @@ export default function Calculator() {
           </div>
           <div>
             <input
+              id="APSH_destination"
+              name="destinationsensorsize"
+              type="radio"
+              className="m-2"
+              checked={destinationSensorSize === "APSH"}
+              onChange={() => setDestinationSensorSize("APSH")}
+            />
+            <label htmlFor="APSH_destination">APS-H (Canon and Leica M8)</label>
+          </div>
+
+          <div>
+            <input
               id="APSC_destination"
               name="destinationsensorsize"
               type="radio"
@@ -170,7 +242,20 @@ export default function Calculator() {
               checked={destinationSensorSize === "APSC"}
               onChange={() => setDestinationSensorSize("APSC")}
             />
-            <label htmlFor="APSC_destination">APS-C</label>
+            <label htmlFor="APSC_destination">
+              APS-C (every brand except Canon)
+            </label>
+          </div>
+          <div>
+            <input
+              id="APSCC_destination"
+              name="destinationsensorsize"
+              type="radio"
+              className="m-2"
+              checked={destinationSensorSize === "APS-C Canon"}
+              onChange={() => setDestinationSensorSize("APS-C Canon")}
+            />
+            <label htmlFor="APSCC_destination">APS-C (Canon)</label>
           </div>
           <div>
             <input
@@ -178,8 +263,8 @@ export default function Calculator() {
               name="destinationsensorsize"
               type="radio"
               className="m-2"
-              checked={destinationSensorSize === "micro43"}
-              onChange={() => setDestinationSensorSize("micro43")}
+              checked={destinationSensorSize === "micro4/3"}
+              onChange={() => setDestinationSensorSize("micro4/3")}
             />
             <label htmlFor="micro43_destination">Micro 4/3</label>
           </div>
@@ -206,32 +291,38 @@ export default function Calculator() {
             <label htmlFor="phone_destination">Phone</label>
           </div>
         </div>
-        <div>
-          <input
-            id="equivalentfocal"
-            type="checkbox"
-            className="m-2"
-            checked={equivalentFocalLength}
-            onChange={() => setEquivalentFocalLength(!equivalentFocalLength)}
-          />
-          <label htmlFor="equivalentfocal">Equivalent Focal Length</label>
+        <div className="pt-6">
+          <div className="flex flex-col">
+            <div>
+              <input
+                id="equivalentfocal"
+                type="checkbox"
+                className="m-2"
+                checked={equivalentFocalLength}
+                onChange={() =>
+                  setEquivalentFocalLength(!equivalentFocalLength)
+                }
+              />
+              <label htmlFor="equivalentfocal">Equivalent Focal Length</label>
+            </div>
+          </div>
+          <div>
+            <input
+              id="equivalentbokeh"
+              type="checkbox"
+              className="m-2"
+              checked={equivalentBokeh}
+              onChange={() => setEquivalentBokeh(!equivalentBokeh)}
+            />
+            <label htmlFor="equivalentbokeh">Equivalent Bokeh (DoF)</label>
+          </div>
+          <button
+            type="submit"
+            className="bg-zinc-500 border-1 rounded-lg border w-fit self-center p-2  mt-48"
+          >
+            Find Equivalent
+          </button>
         </div>
-        <div>
-          <input
-            id="equivalentbokeh"
-            type="checkbox"
-            className="m-2"
-            checked={equivalentBokeh}
-            onChange={() => setEquivalentBokeh(!equivalentBokeh)}
-          />
-          <label htmlFor="equivalentbokeh">Equivalent Bokeh</label>
-        </div>
-        <button
-          type="submit"
-          className="bg-zinc-500 border-1 rounded-lg border w-fit self-center p-2"
-        >
-          Find Equivalent
-        </button>
       </form>
       {calculated && (
         <ResultDisplay
