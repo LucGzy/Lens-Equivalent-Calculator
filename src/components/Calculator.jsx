@@ -37,7 +37,7 @@ export default function Calculator() {
 
   return (
     <div className="w-fit flex flex-col items-center justify-center ">
-      <form className="flex flex-row text-white" onSubmit={calculate}>
+      <form className="flex flex-col text-white" onSubmit={calculate}>
         <div className="flex flex-col">
           <label htmlFor="focallength" className=" mb-2">
             Your focal length :
@@ -318,7 +318,7 @@ export default function Calculator() {
           </div>
           <button
             type="submit"
-            className="bg-zinc-500 border-1 rounded-lg border w-fit self-center p-2  mt-48"
+            className="bg-zinc-500 border-1 rounded-lg border w-fit self-center p-2  mt-4"
           >
             Find Equivalent
           </button>
